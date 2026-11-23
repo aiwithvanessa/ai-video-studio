@@ -1,9 +1,9 @@
-# Distribution policy warning
+# Public repository, unreleased installer
 
-The source repository must stay private for the current no-redistribution goal.
-The earlier public-GitHub-release delivery plan is on hold. An authorized download
-location must be selected and tested before the prompt below can be finalized.
-Do not substitute a public source repository or claim platform forking is blocked.
+The owner authorized public GitHub visibility, accepting GitHub viewing and
+in-service forking permissions. Resale remains restricted by the draft licence.
+Repository visibility does not publish a draft release or make placeholders work.
+The bootstrap still requires a published, verified release before distribution.
 
 # Future one-prompt delivery — DRAFT, NOT A WORKING RELEASE
 

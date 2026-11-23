@@ -44,7 +44,9 @@ Unless the licensor gives separate written permission, you may not distribute,
 publish, upload, share, sublicense or otherwise provide Covered Software or its
 modified versions to other people or organizations, whether free of charge or
 for payment. This includes sharing a ZIP, publishing source code or a modified
-starter, offering a fork for others to obtain, or including it in a free pack.
+starter, offering copies outside separately granted platform permissions, or including
+it in a free pack. GitHub viewing and in-service forking permissions granted by
+the licensor through GitHub terms are expressly unaffected.
 
 You may keep private copies and backups for your own permitted use. Employees
 and contractors may access your copy only to work on your behalf as allowed by
@@ -117,6 +119,7 @@ does not allow to be excluded.
 Uses outside this grant require separate written permission from the licensor.
 No licence to third-party material is granted by such permission unless the
 licensor is separately entitled to grant it. No governing law or jurisdiction
-has been selected in this draft. A public GitHub source repository grants platform
-viewing and forking rights under GitHub terms; do not publish Covered Software
-there while promising that all such copying is prohibited.
+has been selected in this draft. The licensor has authorized a public GitHub repository and acknowledges the
+viewing and in-service forking rights granted through GitHub terms. The
+redistribution restriction does not override those rights. Resale and other
+redistribution still require separate permission under this draft.

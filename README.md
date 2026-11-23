@@ -1,6 +1,6 @@
 # AI Video Studio
 
-Private development starter for local, agent-guided Remotion video editing on Windows.
+Development starter for local, agent-guided Remotion video editing on Windows.
 
 Read [START-HERE.md](START-HERE.md) for setup, brand onboarding, footage intake and editing. The future one-prompt public download is not available yet; do not use placeholder release URLs.
 
@@ -15,3 +15,10 @@ See [LICENSE.md](LICENSE.md) and [the plain-language summary](docs/LICENSING.md)
 ## Verification limits
 
 Local code, packaging and media checks have been exercised. Public bootstrap downloading and clean-machine installation remain untested. Editing and caption synchronization still require review.
+
+## Public repository status
+
+Public visibility is authorized. The installer release and custom licence remain
+drafts; no working public one-prompt installation is claimed. GitHub viewing and
+in-service forking rights apply. Resale and other redistribution remain restricted
+by the draft licence, subject to third-party and mandatory rights.

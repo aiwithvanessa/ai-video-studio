@@ -10,7 +10,8 @@ replacement for that text or a claim of legal review/enforceability.
 | Customize the studio using Codex, including captions, brand and graphics | Allowed |
 | Use it for a business and sell finished videos or genuine editing services | Allowed, subject to third-party terms |
 | Keep your own footage, brand materials and outputs | This licence claims no ownership of them |
-| Share, upload or give away the starter or modified versions for free | Requires separate written permission |
+| Redistribute the starter outside GitHub platform permissions | Requires separate written permission |
+| View and fork the public repository within GitHub | GitHub platform permissions apply |
 | Share a link to the owner's authorized download | Allowed |
 | Sell the starter, a renamed fork, a template pack containing it or paid access to the studio as a software product | Requires separate written permission |
 | Reuse separately licensed CC0 sounds or third-party packages | Their own terms apply; this custom restriction does not override them |
@@ -23,10 +24,9 @@ not DRM or a guarantee that copying/resale can be prevented.
 
 A public GitHub source repository grants viewing and in-service forking rights
 under [GitHub content terms](https://docs.github.com/en/site-policy/github-terms/github-terms-of-service#d-user-generated-content).
-The no-redistribution goal therefore calls for keeping the source repository
-private and choosing an authorized download mechanism separately. Do not make
-the repository public or promise that a custom licence overrides platform rights.
-No new download service has been selected or implemented by this policy update.
+The owner has authorized public GitHub visibility and accepts those platform
+permissions. Resale and redistribution outside those permissions remain
+restricted by the draft. Do not promise that all copying can be prevented.
 
 Before public release, the owner should review the exact scope (including free redistribution, paid
 hosted software and paid bundles), obtain legal review of custom wording as
