@@ -1,0 +1,3 @@
+# CC0 permission evidence
+
+Checked 2026-11-17. Official deed: https://creativecommons.org/publicdomain/zero/1.0/ . Legal code: https://creativecommons.org/publicdomain/zero/1.0/legalcode . CC0 permits copying, adapting and redistribution, including commercially, without a copyright attribution condition. Creator credit remains welcome, not mandatory. No endorsement, trademark rights or warranty is implied. Each asset-specific evidence record below identifies its own CC0 designation; this general note alone is not evidence of an asset's licence. The maintainer retains full source-page snapshots and legal text locally; only factual original evidence summaries are packaged, not the Word document or website HTML.

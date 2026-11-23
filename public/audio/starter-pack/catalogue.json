@@ -1,0 +1,169 @@
+{
+  "schemaVersion": 1,
+  "assets": [
+    {
+      "filename": "pop.mp3",
+      "title": "Bubble_Pop",
+      "creator": "arttim",
+      "sourceUrl": "https://freesound.org/people/arttim/sounds/733264/",
+      "licence": "CC0 1.0 Universal",
+      "attribution": "Not required; optional courtesy credit to creator via Freesound",
+      "downloadedAt": "unknown",
+      "fileSha256": "287379477aa3201e3ee7143141099c5e33907200fe7259c136f3333710d350a9",
+      "intendedUse": "A brief pop for a small callout appearing or a single confirmation; not every cut.",
+      "recommendedVolume": 0.12,
+      "technical": {
+        "filename": "pop.mp3",
+        "bytes": 4174,
+        "sha256": "287379477aa3201e3ee7143141099c5e33907200fe7259c136f3333710d350a9",
+        "durationSeconds": 0.149478,
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 2,
+        "bits": 0,
+        "meanDb": -14.2,
+        "peakDb": -1,
+        "decoded": true
+      },
+      "redistribution": {
+        "verified": true,
+        "fileSha256": "287379477aa3201e3ee7143141099c5e33907200fe7259c136f3333710d350a9",
+        "verifiedAt": "2026-11-17",
+        "notes": "Asset-specific CC0 designation verified on the canonical Freesound page and saved snapshot; permits redistribution/commercial use without copyright attribution. Match supplied by Word document labels and corroborated by file metadata. No remote audio checksum comparison claimed.",
+        "evidenceFiles": [
+          "licences/arttim-733264-cc0.md",
+          "licences/cc0-summary.md"
+        ]
+      },
+      "soundApproval": {
+        "approved": true,
+        "fileSha256": "287379477aa3201e3ee7143141099c5e33907200fe7259c136f3333710d350a9",
+        "approvedAt": "2026-11-17",
+        "evidence": "Project maintainer: chosen sounds approved for default giveaway pack. Assistant did not claim listening verification."
+      }
+    },
+    {
+      "filename": "mouse click.wav",
+      "title": "Mouse Click",
+      "creator": "HunteR4708",
+      "sourceUrl": "https://freesound.org/people/HunteR4708/sounds/256455/",
+      "licence": "CC0 1.0 Universal",
+      "attribution": "Not required; optional courtesy credit to creator via Freesound",
+      "downloadedAt": "unknown",
+      "fileSha256": "1718f0feb39ffae59c257d77746f9e39df03dbe956caa0b906d19a55f1cd2e30",
+      "intendedUse": "One intentional UI click in a product demonstration; avoid repetitive click decoration.",
+      "recommendedVolume": 0.1,
+      "technical": {
+        "filename": "mouse click.wav",
+        "bytes": 115442,
+        "sha256": "1718f0feb39ffae59c257d77746f9e39df03dbe956caa0b906d19a55f1cd2e30",
+        "durationSeconds": 0.3,
+        "codec": "pcm_s16le",
+        "sampleRate": 96000,
+        "channels": 2,
+        "bits": 16,
+        "meanDb": -25.6,
+        "peakDb": -0.2,
+        "decoded": true
+      },
+      "redistribution": {
+        "verified": true,
+        "fileSha256": "1718f0feb39ffae59c257d77746f9e39df03dbe956caa0b906d19a55f1cd2e30",
+        "verifiedAt": "2026-11-17",
+        "notes": "Asset-specific CC0 designation verified on the canonical Freesound page and saved snapshot; permits redistribution/commercial use without copyright attribution. Match supplied by Word document labels and corroborated by file metadata. No remote audio checksum comparison claimed.",
+        "evidenceFiles": [
+          "licences/hunter4708-256455-cc0.md",
+          "licences/cc0-summary.md"
+        ]
+      },
+      "soundApproval": {
+        "approved": true,
+        "fileSha256": "1718f0feb39ffae59c257d77746f9e39df03dbe956caa0b906d19a55f1cd2e30",
+        "approvedAt": "2026-11-17",
+        "evidence": "Project maintainer: chosen sounds approved for default giveaway pack. Assistant did not claim listening verification."
+      }
+    },
+    {
+      "filename": "keyboard.wav",
+      "title": "Keyboard typing (clicking type)",
+      "creator": "vllyrl",
+      "sourceUrl": "https://freesound.org/people/vllyrl/sounds/867994/",
+      "licence": "CC0 1.0 Universal",
+      "attribution": "Not required; optional courtesy credit to creator via Freesound",
+      "downloadedAt": "unknown",
+      "fileSha256": "abf73b5d25b060cd2c4f4212e4c761ef89a0c6efd8914a35d356c047c0e07c4a",
+      "intendedUse": "A short typing action when a keyboard or writing task is actually demonstrated; avoid a continuous bed beneath speech.",
+      "recommendedVolume": 0.06,
+      "technical": {
+        "filename": "keyboard.wav",
+        "bytes": 629896,
+        "sha256": "abf73b5d25b060cd2c4f4212e4c761ef89a0c6efd8914a35d356c047c0e07c4a",
+        "durationSeconds": 6.56,
+        "codec": "pcm_s16le",
+        "sampleRate": 48000,
+        "channels": 1,
+        "bits": 16,
+        "meanDb": -29.4,
+        "peakDb": 0,
+        "decoded": true
+      },
+      "redistribution": {
+        "verified": true,
+        "fileSha256": "abf73b5d25b060cd2c4f4212e4c761ef89a0c6efd8914a35d356c047c0e07c4a",
+        "verifiedAt": "2026-11-17",
+        "notes": "Asset-specific CC0 designation verified on the canonical Freesound page and saved snapshot; permits redistribution/commercial use without copyright attribution. Match supplied by Word document labels and corroborated by file metadata. No remote audio checksum comparison claimed.",
+        "evidenceFiles": [
+          "licences/vllyrl-867994-cc0.md",
+          "licences/cc0-summary.md"
+        ]
+      },
+      "soundApproval": {
+        "approved": true,
+        "fileSha256": "abf73b5d25b060cd2c4f4212e4c761ef89a0c6efd8914a35d356c047c0e07c4a",
+        "approvedAt": "2026-11-17",
+        "evidence": "Project maintainer: chosen sounds approved for default giveaway pack. Assistant did not claim listening verification."
+      }
+    },
+    {
+      "filename": "whoosh.wav",
+      "title": "Swish Swipe Short",
+      "creator": "Qvantor",
+      "sourceUrl": "https://freesound.org/people/Qvantor/sounds/877976/",
+      "licence": "CC0 1.0 Universal",
+      "attribution": "Not required; optional courtesy credit to creator via Freesound",
+      "downloadedAt": "unknown",
+      "fileSha256": "188a28898456bd696f8d07da4064d5a7312ab4f5d733dae333f57757a38b31aa",
+      "intendedUse": "An occasional quick swipe/card or panel transition; not a mandatory transition cue.",
+      "recommendedVolume": 0.1,
+      "technical": {
+        "filename": "whoosh.wav",
+        "bytes": 250980,
+        "sha256": "188a28898456bd696f8d07da4064d5a7312ab4f5d733dae333f57757a38b31aa",
+        "durationSeconds": 0.871104,
+        "codec": "pcm_s24le",
+        "sampleRate": 48000,
+        "channels": 2,
+        "bits": 24,
+        "meanDb": -25.2,
+        "peakDb": -3.1,
+        "decoded": true
+      },
+      "redistribution": {
+        "verified": true,
+        "fileSha256": "188a28898456bd696f8d07da4064d5a7312ab4f5d733dae333f57757a38b31aa",
+        "verifiedAt": "2026-11-17",
+        "notes": "Asset-specific CC0 designation verified on the canonical Freesound page and saved snapshot; permits redistribution/commercial use without copyright attribution. Match supplied by Word document labels and corroborated by file metadata. No remote audio checksum comparison claimed.",
+        "evidenceFiles": [
+          "licences/qvantor-877976-cc0.md",
+          "licences/cc0-summary.md"
+        ]
+      },
+      "soundApproval": {
+        "approved": true,
+        "fileSha256": "188a28898456bd696f8d07da4064d5a7312ab4f5d733dae333f57757a38b31aa",
+        "approvedAt": "2026-11-17",
+        "evidence": "Project maintainer: chosen sounds approved for default giveaway pack. Assistant did not claim listening verification."
+      }
+    }
+  ]
+}

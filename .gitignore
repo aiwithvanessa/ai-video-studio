@@ -1,0 +1,20 @@
+node_modules/
+.local/
+out/
+public/videos/
+public/shared/
+docs/briefs/*.local.md
+.env*
+*.log
+
+.studio-bootstrap/
+src/studio.json
+
+# Private user media outside per-video folders
+public/audio/sfx/
+public/audio/music/
+public/footage/
+public/transcripts/
+*.mp4
+*.mov
+*.mkv

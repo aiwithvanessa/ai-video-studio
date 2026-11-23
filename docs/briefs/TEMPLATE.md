@@ -1,0 +1,16 @@
+# Video: <video-id>
+- Purpose:
+- Audience (only if relevant):
+- Platform/orientation:
+- Target length (optional; inspected source-bound default):
+- Opening on-screen hook (optional; exact wording, or none):
+- Editing instructions / explicit sensible-defaults answer:
+- Asset folder: <project-root>/public/videos/<video-id>
+- Uploaded filenames and what they show:
+- Specific asset instructions / preserve:
+- Transcript/review status (optional):
+- Optional intended script / imported asset / paraphrases and omitted or repeated sections to review:
+- Proposed graphics/effects: ID, what appears, spoken point, supplied asset or created graphic:
+- Review decisions: Approve / Request changes. Remove graphic preserves footage.
+- Current draft revision / explicit final approval:
+- Verification and unverified results:

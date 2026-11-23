@@ -1,0 +1,12 @@
+{
+  "brand": {
+    "name": "My video",
+    "audience": "General audience",
+    "tone": "Clear and friendly",
+    "primary": "#17212B",
+    "accent": "#68B5AB",
+    "text": "#FFFFFF",
+    "fontFamily": "Arial, sans-serif"
+  },
+  "videos": {}
+}

@@ -1,0 +1,43 @@
+{
+  "name": "ai-video-studio-starter-test",
+  "version": "0.1.0-dev.11",
+  "private": true,
+  "scripts": {
+    "start": "remotion studio src/index.ts --port=3200 --no-open",
+    "typecheck": "tsc --noEmit",
+    "compositions": "remotion compositions src/index.ts",
+    "studio": "node scripts/studio.mjs",
+    "check": "node scripts/check.mjs",
+    "check:skill": "node scripts/check-skill.mjs",
+    "setup:transcription": "node scripts/setup-transcription.mjs",
+    "transcribe": "node scripts/transcribe.mjs",
+    "check:editing": "node scripts/check-editing.mjs",
+    "review:transcript": "node scripts/review-transcript.mjs",
+    "build:release": "node scripts/build-release.mjs",
+    "check:bootstrap": "node scripts/check-bootstrap.mjs",
+    "check:onboarding": "node scripts/check-onboarding.mjs",
+    "check:import": "node scripts/check-import.mjs",
+    "check:permissions": "node scripts/check-permission-workflow.mjs",
+    "check:workspace": "node scripts/check-workspace.mjs",
+    "check:conversation": "node scripts/check-conversation.mjs",
+    "check:reference-style": "node scripts/check-reference-style.mjs",
+    "check:cleanup": "node scripts/check-cleanup.mjs",
+    "check:script-assist": "node scripts/check-script-assist.mjs",
+    "check:alignment": "node scripts/check-alignment.mjs",
+    "check:speech-quality": "node scripts/check-speech-quality.mjs",
+    "check:release": "node scripts/check-release.mjs"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.542",
+    "@remotion/media": "4.0.542",
+    "react": "19.2.0",
+    "react-dom": "19.2.0",
+    "remotion": "4.0.542"
+  },
+  "devDependencies": {
+    "@types/react": "19.2.2",
+    "@types/react-dom": "19.2.2",
+    "typescript": "5.9.3"
+  },
+  "license": "SEE LICENSE IN LICENSE.md"
+}

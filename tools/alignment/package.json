@@ -1,0 +1,9 @@
+{
+  "name": "studio-local-cpu-alignment",
+  "private": true,
+  "version": "0.0.0",
+  "dependencies": {
+    "onnxruntime-node": "1.23.2"
+  },
+  "license": "SEE LICENSE IN ../../LICENSE.md"
+}

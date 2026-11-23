@@ -1,0 +1,15 @@
+import assert from 'node:assert/strict';
+import {mkdtempSync,mkdirSync,readFileSync} from 'node:fs';
+import {resolve} from 'node:path';
+import {tmpdir} from 'node:os';
+import {assessWorkspace} from './check-workspace.mjs';
+const temp=mkdtempSync(resolve(tmpdir(),'studio-workspace-')),root=resolve(temp,'studio'),sibling=resolve(temp,'studio-recipient');mkdirSync(root);mkdirSync(sibling);mkdirSync(resolve(root,'nested'));
+assert.equal(assessWorkspace(root,[root]).status,'inside-declared-root');
+assert.equal(assessWorkspace(resolve(root,'nested'),[root]).status,'inside-declared-root');
+assert.equal(assessWorkspace(sibling,[root]).status,'outside-declared-roots');
+assert.equal(assessWorkspace(sibling,[root,sibling]).status,'inside-declared-root');
+assert.equal(assessWorkspace(root,[]).status,'unknown');
+for(const file of ['AGENTS.md','.agents/skills/ai-video-studio/SKILL.md','START-HERE.md','BOOTSTRAP-PROMPT.md','docs/workflow.md'])assert(readFileSync(file,'utf8').includes('permission-workflow'),'Entry not connected: '+file);
+const instructions=readFileSync('.agents/skills/ai-video-studio/references/permission-workflow.md','utf8');
+for(const term of ['default sandbox','final export','protected','already authorized','workspace-root'])assert(instructions.includes(term));
+console.log('Permission workflow checks passed: active-root/nested/sibling/additional-root/unknown cases and five connected entry points. This does not simulate Codex Allow dialogs or change permissions.');
