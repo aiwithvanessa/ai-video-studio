@@ -1,3 +1,10 @@
+# Distribution policy warning
+
+The source repository must stay private for the current no-redistribution goal.
+The earlier public-GitHub-release delivery plan is on hold. An authorized download
+location must be selected and tested before the prompt below can be finalized.
+Do not substitute a public source repository or claim platform forking is blocked.
+
 # Future one-prompt delivery — DRAFT, NOT A WORKING RELEASE
 
 The recipient opens an **empty writable folder in Codex** and pastes this prompt. No manual ZIP download, pre-existing studio or code generation is required. Node/npm and required system tools may still need user installation/permissions; explain those steps. Maintainer step: fill every placeholder only after an actual private-tested, rights-cleared public release exists. Recipients paste the finalized prompt unchanged; they do not look up hashes, edit URLs or manually download a ZIP.

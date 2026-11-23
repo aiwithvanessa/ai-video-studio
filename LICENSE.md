@@ -1,6 +1,6 @@
-# AI Video Studio Free Use — No Resale Licence
+# AI Video Studio Free Use — No Redistribution Licence
 
-Draft 0.1 — 23 November 2026
+Draft 0.2 — 23 November 2026
 
 **PRIVATE DEVELOPMENT DRAFT FOR REVIEW.** These are proposed terms for a future
 public release. Their inclusion in an unpublished development archive does not
@@ -38,19 +38,24 @@ You may charge clients for finished videos and genuine video-editing services.
 Commercial use of the resulting media is allowed under this licence; applicable
 third-party terms and rights in supplied material still apply.
 
-## 3. Free sharing
+## 3. No redistribution, including free sharing
 
-You may redistribute unmodified or modified Covered Software without charge,
-including through a public source repository or fork, provided that you:
+Unless the licensor gives separate written permission, you may not distribute,
+publish, upload, share, sublicense or otherwise provide Covered Software or its
+modified versions to other people or organizations, whether free of charge or
+for payment. This includes sharing a ZIP, publishing source code or a modified
+starter, offering a fork for others to obtain, or including it in a free pack.
 
-- Include this licence and preserve applicable copyright and third-party notices.
-- Clearly identify your modifications and do not imply that your version is an
-  official release or endorsed by the licensor.
-- Pass on Covered Software under these same conditions without removing the
-  no-resale restriction or claiming to relicense it under more permissive terms.
+You may keep private copies and backups for your own permitted use. Employees
+and contractors may access your copy only to work on your behalf as allowed by
+section 2, subject to these conditions and without a right to redistribute it or
+use that access to supply copies to others. Preserve licence and copyright
+notices in your copies. You may share a link to the licensor's authorized download
+instead of distributing a copy yourself.
 
-These conditions do not take ownership of independently authored contributions
-or restrict the separate licences of third-party components.
+This restriction covers only Covered Software. It does not restrict separately
+licensed third-party material, finished media outputs, mandatory legal exceptions
+or platform rights the licensor has separately granted, as explained below.
 
 ## 4. No resale of the starter or software product
 
@@ -68,8 +73,8 @@ Unless the licensor gives separate written permission, you may not:
 Charging for genuine editing services that deliver finished media, without
 offering the studio itself as a product, remains allowed. A fee described as a
 service fee does not authorize a disguised sale of the software or access to it.
-Free sharing is governed by section 3. Voluntary donations not required for
-access are not a sale under this section.
+Redistribution remains prohibited under section 3 even if no payment is required
+or a payment is described as a donation.
 
 ## 5. User materials and outputs
 
@@ -112,4 +117,6 @@ does not allow to be excluded.
 Uses outside this grant require separate written permission from the licensor.
 No licence to third-party material is granted by such permission unless the
 licensor is separately entitled to grant it. No governing law or jurisdiction
-has been selected in this draft.
+has been selected in this draft. A public GitHub source repository grants platform
+viewing and forking rights under GitHub terms; do not publish Covered Software
+there while promising that all such copying is prohibited.

@@ -1,6 +1,6 @@
 # AI Video Studio starter test
 
-The owner selected the custom free-use/no-resale policy in [LICENSE.md](LICENSE.md),
+The owner selected the custom free-use/no-redistribution policy in [LICENSE.md](LICENSE.md),
 with [plain-language guidance](docs/LICENSING.md). It is draft wording for review,
 not MIT/open source or approval to publish. Preserve third-party terms and CC0
 asset permissions; apply restrictions only to original covered material. Do not

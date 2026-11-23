@@ -22,5 +22,5 @@ const files=[];const scan=(dir,prefix='')=>{for(const e of readdirSync(dir,{with
 const archiveName=`ai-video-studio-${version}.zip`,archive=resolve(out,archiveName),quote=s=>s.replaceAll("'","''");
 run('powershell.exe',['-NoProfile','-NonInteractive','-Command',`Add-Type -AssemblyName System.IO.Compression.FileSystem; [IO.Compression.ZipFile]::CreateFromDirectory('${quote(stage)}','${quote(archive)}')`]);
 copyFileSync('scripts/bootstrap.mjs',resolve(out,'bootstrap.mjs'));
-const manifest={schemaVersion:1,version,status:'unpublished-development',licensing:{file:'LICENSE.md',policy:'free-use-no-resale',status:'draft-review-required',licensor:'Vanessa Sax'},bootstrap:{filename:'bootstrap.mjs',sha256:fileHash(resolve(out,'bootstrap.mjs'))},archive:{filename:archiveName,sha256:fileHash(archive)},files};
+const manifest={schemaVersion:1,version,status:'unpublished-development',licensing:{file:'LICENSE.md',policy:'free-use-no-redistribution',status:'draft-review-required',licensor:'Vanessa Sax'},bootstrap:{filename:'bootstrap.mjs',sha256:fileHash(resolve(out,'bootstrap.mjs'))},archive:{filename:archiveName,sha256:fileHash(archive)},files};
 writeFileSync(resolve(out,'release.json'),JSON.stringify(manifest,null,2)+'\n');console.log(JSON.stringify({directory:out,manifestSha256:fileHash(resolve(out,'release.json')),files:files.length,published:false},null,2));

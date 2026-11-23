@@ -37,7 +37,7 @@ If preview stops, ask “restart preview”. The agent runs node scripts/studio.
 
 ## Internal development only
 
-Until a public release exists, maintainers open this candidate folder and invoke $ai-video-studio using its local [skill](.agents/skills/ai-video-studio/SKILL.md). No third-party editing skill is required. The agent, not the recipient, runs development checks. [Rights](docs/RIGHTS.md), final licence wording/publication approval and clean-machine validation remain release gates. The owner's free-use/no-resale policy is recorded in the draft; it is not MIT or a completed legal review.
+Until a public release exists, maintainers open this candidate folder and invoke $ai-video-studio using its local [skill](.agents/skills/ai-video-studio/SKILL.md). No third-party editing skill is required. The agent, not the recipient, runs development checks. [Rights](docs/RIGHTS.md), final licence wording/publication approval and clean-machine validation remain release gates. The owner's free-use/no-redistribution policy is recorded in the draft; it is not MIT or a completed legal review.
 # Optional script
 
 If you used a script, attach or paste it alongside your footage. Rough wording is fine: natural paraphrases should stay natural. Codex manages the files. Scripts help compare intended points and alternate takes; they do not supply reliable speech timestamps. Unscripted videos remain supported without one.
