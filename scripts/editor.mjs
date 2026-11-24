@@ -74,6 +74,7 @@ export async function renderVideo(id,{draft=true}={}){
  if(draft&&s.videos[id]?.requiresEditBrief&&!s.videos[id]?.editBrief)throw Error('Before the first draft, ask for an optional opening hook, target length and editing instructions (or sensible defaults), then save studio brief. Do not ask again if conversation already contains the answer.');
  if(!draft)assertExportApproval(p,s,v);
  if(v.captions){if(!v.transcriptFile)throw Error('Captioned drafts require a bound acoustic transcript; run prepare-speech');const transcript=JSON.parse(readFileSync(localAsset(v.transcriptFile,`videos/${v.id}`),'utf8'));requireAlignedSpeech(transcript,v.durationFrames/v.fps);}
+ const {requireTakeReview}=await import('./take-review.mjs');requireTakeReview(v,s);
  useProjectTemp();
  const version=s.videos[id]?.revision??1,out=`out/${id}/${draft?'draft':'final'}-v${version}.mp4`;mkdirSync(dirname(out),{recursive:true});if(existsSync(out))throw Error('Output exists; preserve it and revise before rendering another version: '+out);
  run(process.execPath,['node_modules/@remotion/cli/remotion-cli.js','render','src/index.ts',`Video-${id}`,out,'--codec=h264','--pixel-format=yuv420p','--image-format=png','--color-space=bt709','--concurrency=1','--offthreadvideo-video-threads=1','--offthreadvideo-cache-size-in-bytes=134217728'],{stdio:'inherit'});
@@ -105,6 +106,7 @@ async function preview(composition){
 }
 export async function runEditor(command,args){
  const o=options(args),p=readProject(),s=loadState(process.cwd()),id=o._[0]??s.activeVideo;
+ if(command==='take-review'){const {takeReview}=await import('./take-review.mjs');takeReview(id,o.file);return;}
  if(command==='prepare-render-source'){const {prepareRenderSource}=await import('./prepare-render-source.mjs');prepareRenderSource(id);return;}
  if(command==='sounds'){const catalogue=JSON.parse(readFileSync('public/audio/starter-pack/catalogue.json','utf8'));console.table(catalogue.assets.map(a=>({...selectBundledSound(a.filename),creator:a.creator,intendedUse:a.intendedUse,licence:a.licence})));console.log('Bundled locally; no download/cataloguing required. Optional cues only; gain is a starting suggestion, not a finished speech mix.');return;}
  if(['cleanup-analyze','cleanup-apply','cleanup-restore'].includes(command)){const c=await import('./cleanup.mjs');if(command==='cleanup-analyze')c.analyzeCleanup(id);else if(command==='cleanup-apply')c.applyCleanup(id,o.file);else c.restoreCleanup(id);return;}

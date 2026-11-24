@@ -1,6 +1,6 @@
 {
   "name": "ai-video-studio-starter-test",
-  "version": "0.1.0-dev.11",
+  "version": "0.0.0",
   "private": true,
   "scripts": {
     "start": "remotion studio src/index.ts --port=3200 --no-open",
@@ -25,7 +25,8 @@
     "check:script-assist": "node scripts/check-script-assist.mjs",
     "check:alignment": "node scripts/check-alignment.mjs",
     "check:speech-quality": "node scripts/check-speech-quality.mjs",
-    "check:release": "node scripts/check-release.mjs"
+    "check:release": "node scripts/check-release.mjs",
+    "check:takes": "node scripts/check-take-review.mjs"
   },
   "dependencies": {
     "@remotion/cli": "4.0.542",

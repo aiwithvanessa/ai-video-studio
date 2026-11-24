@@ -24,3 +24,29 @@ When recognition/timing fails, use the optional [local acoustic alignment](align
 Cleanup also checks acoustic word overlap, at least 120 ms of context around internal cuts, sentence-ending punctuation and cut-adjacent confidence. These are conservative rejection rules, not proof of semantics/listening. Retain an uncertain take rather than making a tight cut. Do not replace a unique spoken instruction with an on-screen card merely because recognition missed it. Read/listen where possible, compare the whole retained transcript and flag missing script points before rendering.
 
 Implementation: scripts/cleanup.mjs; src/lib/cleanup.mjs; cleanup-analyze/cleanup-apply/cleanup-restore; shared EditedVideo/Captions. The automatic detector alone is not a complete bad-take selector: Codex supplies semantic choices. Synthetic pulse/timestamp tests are separate from real recognition/listening accuracy. Official filter semantics: [FFmpeg filters](https://ffmpeg.org/ffmpeg-filters.html).
+
+## Enforced take review before drafts
+
+When the user requests cleanup, false-start removal or a polished script take,
+save editBrief.cleanup=true from conversation; do not ask again for that permission.
+Read the entire original transcript and optional script. cleanup-analyze is only
+a narrow prefix detector, not evidence that complete repeated takes were removed.
+Select one coherent complete take per intended point, considering paraphrases and
+unique content, before adding timed graphics. Use cleanup-apply and existing
+acoustic boundary guards; never weaken them or drop a unique point to finish.
+
+Run studio take-review <id> to create a hash-bound review template. The agent
+handles JSON. Each residual repeated passage must be assessed: remove unwanted
+takes through a new guarded cleanup plan then re-audit; retain intentional repeats
+only with specific reasons. Record fullTranscriptReviewed, coverageNote, listening
+(not-assessed or assessed with listeningNote), and decisions [{id, action:
+retain-intentional, reason}]. Import with studio take-review <id> --file <asset>.
+The renderer refuses missing/stale/incomplete reviews whenever repeated passages
+are detected or cleanup was requested, including uncaptioned drafts with a
+transcript. Reimport after source/transcript/script/cleanup-intent changes. No
+script, frames or technical exercises are required from the beginner.
+
+Repeated candidates are lexical navigation aids, not automatic best-take choices.
+Zero detections is not proof of no paraphrases or mistakes. This review is agent
+evidence, not user final approval or listening certification. If safe cleanup is
+blocked, explain it; do not silently render the full uncut source as a cleaned edit.
