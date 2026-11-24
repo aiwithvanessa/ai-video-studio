@@ -6,9 +6,11 @@ alignment, captions, reusable graphics/effects, reviewable edits and MP4 export.
 
 ## Start here
 
-Read [START-HERE.md](START-HERE.md). The version-pinned installation prompt will
-be linked here after its public downloads have been verified. No manual folder
-organization is required. Work in an empty writable folder in Codex.
+**[Copy the starting prompt here](INSTALL.md)** and paste it into Codex with an
+empty writable project folder open. Codex downloads the pinned preview and handles
+setup and guided onboarding. No manual ZIP download or folder organization.
+
+[Preview release](https://github.com/aiwithvanessa/ai-video-studio/releases/tag/v0.1.0-preview.2) · [Detailed workflow](START-HERE.md)
 
 Windows x64, Node/npm and FFmpeg/ffprobe are required. Dependency, browser and
 optional speech-model downloads need internet and storage. Codex access may have
