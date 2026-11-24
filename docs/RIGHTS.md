@@ -1,18 +1,17 @@
-# Rights record — private candidate only
+# Rights record — preview distribution
 
 Licensing policy updated 23 November 2026; component evidence below retains its
 earlier audit scope. The owner selected free use/customization and commercial
 video work with no resale of the starter; copyright-holder name: Vanessa Sax.
-The proposed text is in [LICENSE.md](../LICENSE.md), explained in
-[LICENSING.md](LICENSING.md). It remains a draft for review, not an authorized
-public release or a claim of legal review. It applies only to original covered
+The approved text is in [LICENSE.md](../LICENSE.md), explained in
+[LICENSING.md](LICENSING.md). Version 1.0 was approved on 24 November 2026; no legal review is claimed. It applies only to original covered
 material, never to third-party rights or user media/outputs.
 
 Dedicated audio exception for future builds: only [starter-pack sounds](starter-audio.md) with verified asset-specific redistribution permission and separate sound approval may be included, together with their evidence. The current filtered public/audio/starter-pack/catalogue.json contains four source-verified CC0 sounds, separately approved by the maintainer; their packaged evidence identifies each asset. All personal audio remains excluded; earlier blanket media exclusions below must not be interpreted as permission to include an unreviewed file through this exception.
 
 The candidate includes an original project-scoped AI Video Studio coordination skill. Its [provenance record](../.agents/skills/ai-video-studio/references/provenance.md) identifies inspected reusable code and official technical sources. The excluded third-party skill remains excluded. The owner's no-resale policy does not supply permissions for excluded material or resolve third-party terms.
 
-Project-authored state, brand preview, editing/caption/effect, transcription integration and bootstrap/release code are included with neutral defaults and independently written instructions. No third-party runtime/source implementation or compiled binary is bundled. Imports call public package APIs; recipients install dependencies separately. Package metadata points to the custom draft licence (private:true still prevents accidental npm publication). Final wording and public publication have not been approved. No third-party licence grant is fabricated.
+Project-authored state, brand preview, editing/caption/effect, transcription integration and bootstrap/release code are included with neutral defaults and independently written instructions. No third-party runtime/source implementation or compiled binary is bundled. Imports call public package APIs; recipients install dependencies separately. Package metadata points to the custom licence (private:true still prevents accidental npm publication). The owner approved the licence and public repository; preview distribution does not establish clean-machine reliability. No third-party licence grant is fabricated.
 
 | Material | Authoritative evidence and permission | Decision |
 |---|---|---|
@@ -28,7 +27,7 @@ Project-authored state, brand preview, editing/caption/effect, transcription int
 
 Dependency lock contains transitive package metadata, not those packages. Inspect installed licence files/NOTICE and the complete transitive tree before any future runtime/binary bundling; no comprehensive transitive redistribution clearance is claimed. No arbitrary website/public download was treated as permission. Evidence URLs were checked against upstream sources; local package licence files were compared for direct runtime packages. No downloaded skill author's licence has been inferred.
 
-No downloaded sound/storyboard library or third-party editing examples are packaged. Original caption/transcription integration and basic editing/effects are implemented; engine/model/binaries remain separate downloads. Arbitrary multitrack editing and acoustic alignment certification are not claimed. Public release still needs final licence review/approval, applicable third-party terms review, publication authorization and clean Windows first-user testing. Never include test-installed node_modules, browser caches, local state, outputs, Git history or user files in a future package.
+No downloaded sound/storyboard library or third-party editing examples are packaged. Original caption/transcription integration and basic editing/effects are implemented; engine/model/binaries remain separate downloads. Arbitrary multitrack editing and acoustic alignment certification are not claimed. Clean Windows first-user testing remains incomplete. Preserve the component-specific evidence and recipient eligibility requirements. Never include test-installed node_modules, browser caches, local state, outputs, Git history or user files in a future package.
 
 Specific transitive metadata limits: the lock has @remotion/effects 4.0.542 marked UNLICENSED (https://raw.githubusercontent.com/remotion-dev/remotion/v4.0.542/packages/effects/package.json), and unspecified licence fields for compositor platform packages and @remotion/media. Their implementation is excluded from this candidate. A missing SPDX field alone does not settle applicable rights; consult the publisher's terms for the actual package/use case. No separate effects API is used. No blanket requirement to obtain written permission merely to share an original Remotion-based starter has been established. Recipients remain subject to Remotion's own eligibility/terms, and this custom licence cannot relicense its implementation.
 

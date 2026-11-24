@@ -1,11 +1,10 @@
-# Proposed use terms
+# Use terms
 
-Status: draft for review, not an approved public release. Copyright-holder name
-confirmed by the project owner: Vanessa Sax. See [the draft licence](../LICENSE.md)
-for the proposed terms; this page is a plain-language explanation, not a
-replacement for that text or a claim of legal review/enforceability.
+Status: licence Version 1.0 approved by Vanessa Sax on 24 November 2026.
+See [LICENSE.md](../LICENSE.md) for the governing text. This summary is not a
+claim of legal review or enforceability.
 
-| Example | Proposed permission |
+| Example | Permission |
 |---|---|
 | Customize the studio using Codex, including captions, brand and graphics | Allowed |
 | Use it for a business and sell finished videos or genuine editing services | Allowed, subject to third-party terms |
@@ -26,14 +25,12 @@ A public GitHub source repository grants viewing and in-service forking rights
 under [GitHub content terms](https://docs.github.com/en/site-policy/github-terms/github-terms-of-service#d-user-generated-content).
 The owner has authorized public GitHub visibility and accepts those platform
 permissions. Resale and redistribution outside those permissions remain
-restricted by the draft. Do not promise that all copying can be prevented.
+restricted by the licence. Do not promise that all copying can be prevented.
 
-Before public release, the owner should review the exact scope (including free redistribution, paid
-hosted software and paid bundles), obtain legal review of custom wording as
-appropriate, approve the final version and authorize publication. No governing
-law, court, registration, personal address or public contact URL is invented.
-Do not remove the draft notice automatically or change bootstrap's unpublished
-status as a consequence of adding this document.
+The owner approved free use/customization and commercial finished-video work,
+with no resale or redistribution outside separately granted GitHub platform
+permissions. Legal review has not been completed. No governing law, court,
+personal address or permission-request contact has been invented.
 
 Third-party and provenance notes remain in [RIGHTS.md](RIGHTS.md). The licence
 does not relicense Remotion, dependencies, binaries, models or CC0 assets, and

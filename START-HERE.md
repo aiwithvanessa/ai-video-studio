@@ -1,11 +1,9 @@
-# AI Video Studio — maintained implementation, private development
+# AI Video Studio — Windows preview release
 
-Proposed terms: free use and customization, commercial video work and free
-sharing are allowed; resale of the starter or paid access to it as a software
-product requires permission. See [the licensing summary](docs/LICENSING.md) and
-[draft licence](LICENSE.md). This is a custom source-available licence, not an
-open-source licence. Wording and public release remain unapproved; third-party
-components keep their own terms.
+Free use and customization and commercial finished videos are allowed. Resale
+and redistribution outside GitHub platform permissions require permission.
+See [licence](LICENSE.md) and [summary](docs/LICENSING.md). This is source-available,
+not OSI open source. Third-party terms remain separate; no legal review is claimed.
 
 ## Intended recipient delivery: one prompt, no manual ZIP
 
@@ -37,7 +35,7 @@ If preview stops, ask “restart preview”. The agent runs node scripts/studio.
 
 ## Internal development only
 
-Until a public release exists, maintainers open this candidate folder and invoke $ai-video-studio using its local [skill](.agents/skills/ai-video-studio/SKILL.md). No third-party editing skill is required. The agent, not the recipient, runs development checks. [Rights](docs/RIGHTS.md), final licence wording/publication approval and clean-machine validation remain release gates. The owner's free-use/no-redistribution policy is recorded in the draft; it is not MIT or a completed legal review.
+Until a public release exists, maintainers open this candidate folder and invoke $ai-video-studio using its local [skill](.agents/skills/ai-video-studio/SKILL.md). No third-party editing skill is required. The agent, not the recipient, runs development checks. [Rights](docs/RIGHTS.md), clean-machine validation remains uncompleted. The owner's free-use/no-redistribution policy is recorded in the licence; it is not MIT or a completed legal review.
 # Optional script
 
 If you used a script, attach or paste it alongside your footage. Rough wording is fine: natural paraphrases should stay natural. Codex manages the files. Scripts help compare intended points and alternate takes; they do not supply reliable speech timestamps. Unscripted videos remain supported without one.

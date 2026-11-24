@@ -1,15 +1,12 @@
 # AI Video Studio Free Use — No Redistribution Licence
 
-Draft 0.2 — 23 November 2026
+Version 1.0 — 24 November 2026
 
-**PRIVATE DEVELOPMENT DRAFT FOR REVIEW.** These are proposed terms for a future
-public release. Their inclusion in an unpublished development archive does not
-announce a public release or an effective public licence grant. Legal review has
-not been completed. Publication and final wording remain subject to the
-licensor's approval.
+Approved by Vanessa Sax for this authorized public distribution.
+This custom licence has not received legal review.
 
 Copyright (c) 2026 Vanessa Sax. All rights reserved except as expressly granted
-under the terms below when issued by the licensor with an authorized release.
+under the terms below.
 
 ## 1. Scope
 
@@ -119,7 +116,7 @@ does not allow to be excluded.
 Uses outside this grant require separate written permission from the licensor.
 No licence to third-party material is granted by such permission unless the
 licensor is separately entitled to grant it. No governing law or jurisdiction
-has been selected in this draft. The licensor has authorized a public GitHub repository and acknowledges the
+has been selected. The licensor has authorized a public GitHub repository and acknowledges the
 viewing and in-service forking rights granted through GitHub terms. The
 redistribution restriction does not override those rights. Resale and other
-redistribution still require separate permission under this draft.
+redistribution still require separate permission under this licence.

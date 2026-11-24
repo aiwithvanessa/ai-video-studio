@@ -1,10 +1,10 @@
 # AI Video Studio starter test
 
 The owner selected the custom free-use/no-redistribution policy in [LICENSE.md](LICENSE.md),
-with [plain-language guidance](docs/LICENSING.md). It is draft wording for review,
-not MIT/open source or approval to publish. Preserve third-party terms and CC0
-asset permissions; apply restrictions only to original covered material. Do not
-invent legal review, change the named licensor or remove draft status silently.
+with [plain-language guidance](docs/LICENSING.md). Version 1.0 was approved by
+Vanessa Sax on 24 November 2026. It is not MIT/open source and has not received
+legal review. Preserve third-party terms, CC0 asset permissions and GitHub
+platform rights. Do not change the named licensor or terms without authorization.
 
 Follow [low-friction permissions](.agents/skills/ai-video-studio/references/permission-workflow.md) before setup/editing. A user edit request authorizes normal in-scope implementation and draft rendering. Use default sandbox permissions inside the active project; do not request repeated consent for captions, effects, briefs or checks. Fix a workspace mismatch once rather than escalating every edit. Brand/current-final-export review remains separate from system Allow dialogs.
 

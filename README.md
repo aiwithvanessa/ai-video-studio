@@ -1,24 +1,29 @@
 # AI Video Studio
 
-Development starter for local, agent-guided Remotion video editing on Windows.
+A maintained local Windows video studio guided by Codex: brand onboarding,
+reference-style review, footage intake, English transcription and acoustic
+alignment, captions, reusable graphics/effects, reviewable edits and MP4 export.
 
-Read [START-HERE.md](START-HERE.md) for setup, brand onboarding, footage intake and editing. The future one-prompt public download is not available yet; do not use placeholder release URLs.
+## Start here
 
-## Status
+Read [START-HERE.md](START-HERE.md). The version-pinned installation prompt will
+be linked here after its public downloads have been verified. No manual folder
+organization is required. Work in an empty writable folder in Codex.
 
-Prepared from verified development package 0.1.0-dev.11. No private brand, footage, transcript, output, setup history or downloaded model is included. Dependencies and optional CPU speech tools are installed locally when needed.
+Windows x64, Node/npm and FFmpeg/ffprobe are required. Dependency, browser and
+optional speech-model downloads need internet and storage. Codex access may have
+its own cost. Remotion eligibility and all third-party terms apply separately.
 
-## Proposed licence
+## Preview status
 
-See [LICENSE.md](LICENSE.md) and [the plain-language summary](docs/LICENSING.md). The custom free-use/no-resale wording is a draft for review, not an approved public release or an OSI open-source licence. Third-party terms remain separate.
+This is a preview, not a clean-machine-certified product. Automated structural
+and synthetic tests do not prove recognition, timing or editing accuracy. Review
+draft playback/listening and approve the current revision before final export.
+No private footage, brand approvals, outputs or local history are bundled.
 
-## Verification limits
+## Licence
 
-Local code, packaging and media checks have been exercised. Public bootstrap downloading and clean-machine installation remain untested. Editing and caption synchronization still require review.
-
-## Public repository status
-
-Public visibility is authorized. The installer release and custom licence remain
-drafts; no working public one-prompt installation is claimed. GitHub viewing and
-in-service forking rights apply. Resale and other redistribution remain restricted
-by the draft licence, subject to third-party and mandatory rights.
+[Version 1.0](LICENSE.md) is approved by Vanessa Sax. Free use/customization and
+commercial finished videos are allowed. Resale and redistribution outside GitHub
+platform permissions require permission. GitHub viewing and in-service forking
+rights are preserved. Third-party terms remain separate. No legal review claimed.
