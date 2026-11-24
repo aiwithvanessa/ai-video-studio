@@ -1,7 +1,7 @@
 # Public repository, unreleased installer
 
 The owner authorized public GitHub visibility, accepting GitHub viewing and
-in-service forking permissions. Resale remains restricted by the draft licence.
+in-service forking permissions. Resale remains restricted by the approved licence.
 Repository visibility does not publish a draft release or make placeholders work.
 The bootstrap still requires a published, verified release before distribution.
 

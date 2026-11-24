@@ -1,3 +1,6 @@
+import {qualityArgs,sourceQualityReport} from './render-quality.mjs';
+import {sourceSegments} from '../src/lib/source-timeline.mjs';
+import {keepRangesFromCuts} from '../src/lib/cleanup.mjs';
 import {useProjectTemp} from './project-temp.mjs';
 import {existsSync,readFileSync,writeFileSync,mkdirSync,appendFileSync,readdirSync,openSync,readSync,closeSync,copyFileSync,realpathSync} from 'node:fs';
 import {resolve,relative,dirname,sep,extname} from 'node:path';
@@ -29,8 +32,8 @@ export function videoMetadata(info,inSeconds=0,length=15){
 }
 export function fingerprint(project,video){
  const code=[];const walk=folder=>{for(const entry of readdirSync(folder,{withFileTypes:true})){const path=resolve(folder,entry.name);if(entry.isDirectory())walk(path);else if(entry.name!=='studio.json')code.push([relative('src',path),fileHash(path)]);}};walk('src');
- const assets=[video.source,...(video.cleanup?[video.cleanup.editedSource,video.cleanup.planFile,video.cleanup.sourceTranscriptFile]:[]),...(video.renderSource?[video.renderSource]:[]),...video.graphics.filter(g=>g.asset).map(g=>g.asset),...video.sounds.map(s=>'audio/starter-pack/'+s.filename),...(project.brand.logo?[project.brand.logo]:[]),...(video.transcriptFile?[video.transcriptFile]:[])];
- return digest({brand:project.brand,video,code,assets:assets.map(p=>[p,fileHash(resolve('public',p))])});
+ const assets=[video.source,...(video.cleanup?[...(video.cleanup.editedSource?[video.cleanup.editedSource]:[]),video.cleanup.planFile,video.cleanup.sourceTranscriptFile]:[]),...(video.renderSource?[video.renderSource]:[]),...video.graphics.filter(g=>g.asset).map(g=>g.asset),...video.sounds.map(s=>'audio/starter-pack/'+s.filename),...(project.brand.logo?[project.brand.logo]:[]),...(video.transcriptFile?[video.transcriptFile]:[])];
+ return digest({brand:project.brand,video,code,qualityArgs,assets:assets.map(p=>[p,fileHash(resolve('public',p))])});
 }
 function options(args){const out={_:[]};for(let i=0;i<args.length;i++){if(args[i].startsWith('--')){const name=args[i].slice(2);if(args[i+1]===undefined||args[i+1].startsWith('--'))throw Error('Value required for --'+name);out[name]=args[++i];}else out._.push(args[i]);}return out;}
 const bool=v=>{if(!['true','false'].includes(v))throw Error('Use true or false');return v==='true';};
@@ -52,10 +55,10 @@ function recordBrandChoices(brand,website){
  writeFileSync(file,doc.trimEnd()+'\n\n'+block);
 }
 export function validateVideo(v){
- const duration=v.durationFrames/v.fps;
+ const duration=v.durationFrames/v.fps;sourceSegments(v);
  if(!Number.isInteger(v.durationFrames)||v.durationFrames<1||v.fps!==30||v.width%2||v.height%2)throw Error('Invalid video metadata');
  if(fileHash(localAsset(v.source,`videos/${v.id}`))!==v.sourceSha256)throw Error('Source changed since intake; inspect and intake again');
- if(v.cleanup){const c=v.cleanup;for(const [asset,hash] of [[c.editedSource,c.editedSourceSha256],[c.planFile,c.planSha256],[c.sourceTranscriptFile,c.sourceTranscriptSha256]])if(fileHash(localAsset(asset,`videos/${v.id}`))!==hash)throw Error('Cleanup media/plan/original transcript changed; restore/review before rendering');if(c.keepRanges.reduce((n,k)=>n+k.endFrame-k.startFrame,0)!==v.durationFrames)throw Error('Cleanup duration mismatch');}
+ if(v.cleanup){const c=v.cleanup;for(const [asset,hash] of [...(c.editedSource?[[c.editedSource,c.editedSourceSha256]]:[]),[c.planFile,c.planSha256],[c.sourceTranscriptFile,c.sourceTranscriptSha256]])if(fileHash(localAsset(asset,`videos/${v.id}`))!==hash)throw Error('Cleanup media/plan/original transcript changed; restore/review before rendering');const plan=JSON.parse(readFileSync(localAsset(c.planFile,`videos/${v.id}`)));if(JSON.stringify(keepRangesFromCuts(plan.cuts,c.originalSectionFrames))!==JSON.stringify(c.keepRanges))throw Error('Cleanup ranges differ from the bound cut plan');if(c.keepRanges.reduce((n,k)=>n+k.endFrame-k.startFrame,0)!==v.durationFrames)throw Error('Cleanup duration mismatch');}
  if(v.renderSource&&fileHash(localAsset(v.renderSource,`videos/${v.id}`))!==v.renderSourceSha256)throw Error('Render copy changed');
  if(v.captions){const result=validateTranscript({schemaVersion:1,words:v.words},duration);if(!result.valid)throw Error('Invalid caption timing: '+result.errors.join('; '));if(v.transcriptFile){const source=JSON.parse(readFileSync(localAsset(v.transcriptFile,`videos/${v.id}`),'utf8'));if(digest(source.words)!==digest(v.words))throw Error('Transcript changed; reimport it before rendering captions');}}
  for(const item of [...v.effects,...v.graphics])if(!Number.isFinite(item.start)||!Number.isFinite(item.end)||item.start<0||item.end<=item.start||item.end>duration)throw Error('Graphic/effect outside video duration');
@@ -75,10 +78,11 @@ export async function renderVideo(id,{draft=true}={}){
  if(!draft)assertExportApproval(p,s,v);
  if(v.captions){if(!v.transcriptFile)throw Error('Captioned drafts require a bound acoustic transcript; run prepare-speech');const transcript=JSON.parse(readFileSync(localAsset(v.transcriptFile,`videos/${v.id}`),'utf8'));requireAlignedSpeech(transcript,v.durationFrames/v.fps);}
  const {requireTakeReview}=await import('./take-review.mjs');requireTakeReview(v,s);
+ const quality=sourceQualityReport(probe(localAsset(v.source,`videos/${v.id}`)),v);for(const warning of quality.warnings)console.warn('Quality warning: '+warning);
  useProjectTemp();
  const version=s.videos[id]?.revision??1,out=`out/${id}/${draft?'draft':'final'}-v${version}.mp4`;mkdirSync(dirname(out),{recursive:true});if(existsSync(out))throw Error('Output exists; preserve it and revise before rendering another version: '+out);
- run(process.execPath,['node_modules/@remotion/cli/remotion-cli.js','render','src/index.ts',`Video-${id}`,out,'--codec=h264','--pixel-format=yuv420p','--image-format=png','--color-space=bt709','--concurrency=1','--offthreadvideo-video-threads=1','--offthreadvideo-cache-size-in-bytes=134217728'],{stdio:'inherit'});
- const metadata=probe(out);writeFileSync(out+'.ffprobe.json',JSON.stringify(metadata,null,2));
+ run(process.execPath,['node_modules/@remotion/cli/remotion-cli.js','render','src/index.ts',`Video-${id}`,out,'--codec=h264',...qualityArgs,'--pixel-format=yuv420p','--image-format=png','--color-space=bt709','--concurrency=1','--offthreadvideo-video-threads=1','--offthreadvideo-cache-size-in-bytes=134217728'],{stdio:'inherit'});
+ const metadata=probe(out);writeFileSync(out+'.ffprobe.json',JSON.stringify(metadata,null,2));writeFileSync(out+'.quality.json',JSON.stringify(quality,null,2));
  const stream=metadata.streams.find(x=>x.codec_type==='video');const rate=stream.r_frame_rate.split('/').map(Number);
  if(stream.codec_name!=='h264'||stream.pix_fmt!=='yuv420p'||stream.width!==v.width||stream.height!==v.height||rate[0]/rate[1]!==v.fps||Math.abs(Number(stream.duration)-v.durationFrames/v.fps)>1/v.fps)throw Error('Rendered metadata did not match required output; preserve file and inspect its ffprobe report');
  if(probe(resolve('public',v.source)).streams.some(x=>x.codec_type==='audio')&&!metadata.streams.some(x=>x.codec_type==='audio'))throw Error('Expected source audio is absent from rendered file');

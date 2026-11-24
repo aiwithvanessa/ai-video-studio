@@ -1,0 +1,11 @@
+import assert from 'node:assert/strict';
+import {sourceSegments} from '../src/lib/source-timeline.mjs';import {sourceQualityReport,qualityArgs} from './render-quality.mjs';
+const v={inSeconds:1,fps:30,durationFrames:90,effects:[]};assert.deepEqual(sourceSegments(v),[{from:0,duration:90,trimBefore:30,trimAfter:120}]);
+const edited={...v,durationFrames:75,cleanup:{originalSectionFrames:180,keepRanges:[{startFrame:15,endFrame:45,outStartFrame:0},{startFrame:90,endFrame:135,outStartFrame:30}]}};
+assert.deepEqual(sourceSegments(edited),[{from:0,duration:30,trimBefore:45,trimAfter:75},{from:30,duration:45,trimBefore:120,trimAfter:165}]);
+const at=f=>sourceSegments(edited).filter(s=>f>=s.from&&f<s.from+s.duration);for(let f=0;f<75;f++)assert.equal(at(f).length,1);assert.equal(at(29)[0].trimBefore+29,74);assert.equal(at(30)[0].trimBefore,120);
+for(const ranges of [[{startFrame:0,endFrame:10,outStartFrame:1}],[{startFrame:0,endFrame:10,outStartFrame:0},{startFrame:9,endFrame:74,outStartFrame:10}]])assert.throws(()=>sourceSegments({...edited,cleanup:{...edited.cleanup,keepRanges:ranges}}),/timeline|ranges/);
+const info={streams:[{codec_type:'video',width:320,height:568,codec_name:'h264',r_frame_rate:'30/1'}]};assert(sourceQualityReport(info,{...v,width:320,height:568}).warnings.some(w=>w.includes('Low-resolution')));assert(sourceQualityReport(info,{...v,width:320,height:568,effects:[{kind:'zoom',amount:.1}]}).warnings.some(w=>w.includes('Zoom')));
+assert.throws(()=>sourceQualityReport({streams:[{...info.streams[0],color_transfer:'smpte2084'}]},{...v,width:320,height:568}),/HDR/);
+assert(qualityArgs.includes('--crf=16'));assert(qualityArgs.includes('--x264-preset=medium'));
+console.log('Render-quality checks passed: source-frame mapping, nonzero section origin, half-open joins, invalid ranges, quality settings and low-resolution/zoom/HDR handling. These fixtures do not prove decoded audiovisual quality.');

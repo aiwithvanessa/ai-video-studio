@@ -26,7 +26,8 @@
     "check:alignment": "node scripts/check-alignment.mjs",
     "check:speech-quality": "node scripts/check-speech-quality.mjs",
     "check:release": "node scripts/check-release.mjs",
-    "check:takes": "node scripts/check-take-review.mjs"
+    "check:takes": "node scripts/check-take-review.mjs",
+    "check:quality": "node scripts/check-render-quality.mjs"
   },
   "dependencies": {
     "@remotion/cli": "4.0.542",

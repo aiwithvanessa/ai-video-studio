@@ -19,3 +19,24 @@ After revisions and actual user approval, studio approve-video <id> --note "actu
 The maintained components are Effects.tsx, Captions.tsx, Graphics.tsx, BrandPreview.tsx and EditedVideo.tsx. No arbitrary multi-track timeline, cross-clip transition editor or model alignment certificate is claimed. Rights and clean-machine release gates remain; do not publish automatically.
 
 The current default pack includes pop.mp3, mouse click.wav, keyboard.wav and whoosh.wav. Use studio sounds to inspect intended uses and conservative starting volumes; they are already local and verified/approved. No recipient download or new catalogue task is required. Do not auto-fill every cut or obscure speech; any final mix still needs listening and level checks.
+
+## Source quality
+
+Cleanup records original-source keep ranges; it no longer encodes a video/audio
+intermediate. SourceFootage plays each range with frame-based Sequence timing and
+source trim, while effects/captions stay on the edited global timeline. Existing
+legacy cleanup files remain preserved; their compressed editedSource is not used
+for footage playback. New apply/restore still binds original media/transcript/plan
+hashes. Never replace original footage with a draft or social-media download.
+
+Draft/final exports use PNG capture, H.264 CRF16/medium, yuv420p, bt709, AAC320k,
+concurrency1 and conservative decoder limits. MP4 is lossy; no zero-loss promise.
+The original-resolution caps/no-upscale default remain. The renderer saves a
+quality report and warns about low-resolution footage, enlargement and fallback
+transcodes; it rejects known HDR transfers pending explicit colour handling.
+Compatibility conversion remains opt-in for demonstrated decoder failures and
+is not a default quality step. It cannot silently replace original cleanup media.
+Inspect matching original/export frames (clear of overlays) and source-mapped
+audio around joins; metadata/bitrate alone does not prove visual/listening quality.
+A 320x568 input stays low-detail even if enlarged to1080p. Offer the original
+camera file when available; missing higher-resolution media does not block a draft.

@@ -35,28 +35,15 @@ export function applyCleanup(id,planFile){
  const info=probe(source),vs=info.streams.find(s=>s.codec_type==='video'),audio=info.streams.find(s=>s.codec_type==='audio'),offset=audio?Number(audio.start_time??0)-Number(vs.start_time??0):0;
  if(Math.abs(Number(vs.start_time??0)-Number(info.format.start_time??0))>1/v.fps)throw Error('Video/media-origin offset needs normalization and timing review before cleanup');
  const folder=`videos/${id}/generated/cleanup/run-${stamp()}`;mkdirSync(resolve('public',folder),{recursive:true});
- const editedSource=folder+'/edited.mp4',out=resolve('public',editedSource),filter=[];
- const n=keeps.length;
- filter.push(`[0:v:0]fps=${v.fps},setpts=PTS-STARTPTS,split=${n}`+keeps.map((_,i)=>`[vin${i}]`).join(''));
- if(audio){const lead=offset>=0?`adelay=${Math.round(offset*48000)}S:all=1`:`atrim=start=${-offset},asetpts=PTS-STARTPTS`;filter.push(`[0:a:0]aresample=48000,asetpts=PTS-STARTPTS,${lead},apad,asplit=${n}`+keeps.map((_,i)=>`[ain${i}]`).join(''));}
- for(const [i,k] of keeps.entries()){
-  const start=Math.round(v.inSeconds*v.fps)+k.startFrame,end=Math.round(v.inSeconds*v.fps)+k.endFrame;
-  filter.push(`[vin${i}]trim=start_frame=${start}:end_frame=${end},setpts=PTS-STARTPTS,scale=${v.width}:${v.height},setsar=1[v${i}]`);
-  if(audio)filter.push(`[ain${i}]atrim=start_sample=${start*1600}:end_sample=${end*1600},asetpts=PTS-STARTPTS[a${i}]`);
- }
- filter.push(keeps.map((_,i)=>`[v${i}]${audio?`[a${i}]`:''}`).join('')+`concat=n=${n}:v=1:a=${audio?1:0}[vout]${audio?'[aout]':''}`);
- const args=['-v','error','-n','-i',source,'-filter_complex_threads','1','-filter_complex',filter.join(';'),'-map','[vout]'];if(audio)args.push('-map','[aout]','-c:a','aac','-ar','48000','-ac','2');
- args.push('-c:v','libx264','-preset','veryfast','-crf','18','-threads','1','-pix_fmt','yuv420p','-r','30','-frames:v',String(mapped.durationFrames),'-movflags','+faststart',out);
- run('ffmpeg',args);const meta=probe(out),outputVideo=meta.streams.find(s=>s.codec_type==='video');
- if(outputVideo.width!==v.width||outputVideo.height!==v.height||outputVideo.codec_name!=='h264'||outputVideo.pix_fmt!=='yuv420p'||Number(outputVideo.nb_frames)!==mapped.durationFrames||Math.abs(Number(outputVideo.duration)-mapped.durationFrames/v.fps)>1/v.fps||Boolean(audio)!==meta.streams.some(s=>s.codec_type==='audio'))throw Error('Edited media verification failed; original/state unchanged; preserve generated evidence');
- const cleanup={originalSectionFrames:v.durationFrames,sourceTranscriptFile:v.transcriptFile,sourceTranscriptSha256:fileHash(file),sourceCaptions:v.captions,planFile,planSha256:fileHash(planPath),editedSource,editedSourceSha256:fileHash(out),keepRanges:keeps,removedWordIndices:mapped.removedWordIndices,warnings:plan.warnings??[]};
+ const cleanup={mode:'source-timeline',originalSectionFrames:v.durationFrames,sourceTranscriptFile:v.transcriptFile,sourceTranscriptSha256:fileHash(file),sourceCaptions:v.captions,planFile,planSha256:fileHash(planPath),keepRanges:keeps,removedWordIndices:mapped.removedWordIndices,warnings:plan.warnings??[]};
+ // No video/audio intermediate: Remotion consumes these original-source ranges.
  const transcriptFile=folder+'/edited-transcript.json';
  writeFileSync(resolve('public',transcriptFile),JSON.stringify({...data,timeline:'edited',durationSeconds:mapped.durationFrames/v.fps,words:mapped.words,cleanupPlanSha256:cleanup.planSha256,validation:mapped.validation},null,2));
  writeFileSync(resolve('public',folder+'/cut-report.json'),JSON.stringify({cuts:plan.cuts,keeps,boundaryChecks,removedWords:mapped.removedWordIndices.map(i=>({index:i,...data.words[i]})),keptWordCount:mapped.words.length,warnings:cleanup.warnings,listening:'Not assessed; final draft approval still required'},null,2));
  writeFileSync(resolve('public',folder+'/retained-transcript.txt'),mapped.words.map(w=>(w.cutBefore?'\n\n':'')+w.text).join(' ')+'\n');
  v.cleanup=cleanup;v.durationFrames=mapped.durationFrames;v.words=mapped.words;v.transcriptFile=transcriptFile;
  writeProject(project);const s=loadState(process.cwd());revise(s,id);saveState(process.cwd(),s);appendFileSync(`docs/briefs/${id}.local.md`,`\nCleanup: ${plan.cuts.length} cut(s), ${mapped.removedWordIndices.length} words omitted; source retained. Report ${folder}/cut-report.json. Review draft/listen; no final approval.\n`);
- console.log(JSON.stringify({durationSeconds:v.durationFrames/v.fps,editedSource,transcriptFile,removedWordCount:mapped.removedWordIndices.reduce((n,i)=>n+data.words[i].text.trim().split(/\s+/).length,0),keptWordCount:v.words.reduce((n,w)=>n+w.text.trim().split(/\s+/).length,0),captionIntervalCount:v.words.length,warnings:cleanup.warnings},null,2));return editedSource;
+ console.log(JSON.stringify({durationSeconds:v.durationFrames/v.fps,timeline:'original-source',transcriptFile,removedWordCount:mapped.removedWordIndices.reduce((n,i)=>n+data.words[i].text.trim().split(/\s+/).length,0),keptWordCount:v.words.reduce((n,w)=>n+w.text.trim().split(/\s+/).length,0),captionIntervalCount:v.words.length,warnings:cleanup.warnings},null,2));return planFile;
 }
 export function restoreCleanup(id){
  const p=readProject(),v=p.videos[id],c=v?.cleanup;if(!c)throw Error('No cleanup applied');

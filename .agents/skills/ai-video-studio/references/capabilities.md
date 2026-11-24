@@ -18,6 +18,7 @@
 | Captions | Captions.tsx; caption-layout.mjs | Fixed configured font and measured width grouping at actual word boundaries, one/two lines and stable highlight layout. Unaligned drafts blocked. No automatic spelling/listening correctness guarantee. |
 | Graphics | src/components/Graphics.tsx; studio graphic | Callouts/headings/steps/real screenshot cards; agent must choose actual content/placement and inspect faces/captions. |
 | Zoom/pan/fade | src/components/Effects.tsx; studio effect | Restrained amounts, frame-driven; no arbitrary multi-clip transition timeline or subject tracking. |
+| Quality / original-source cuts | SourceFootage.tsx, source-timeline.mjs, render-quality.mjs; check:quality | No compressed cleanup intermediate; CRF16 exports, resolution/zoom warnings and HDR gate. Legacy intermediates retained. Lossy MP4 and 30fps/1080 caps remain; no acoustic/colour certification. |
 | Footage composition | src/compositions/EditedVideo.tsx, Root registry | Single-source local draft, title and original sound; no cloud editor/dashboard. |
 | Approved sounds | studio sound and validateVideo; starter-pack catalogue/hash checks | Pack can be empty; no personal audio, automatic music or finished mix guarantee. |
 | Preview/revision | studio preview / set / effect / graphic; revise state helper | Codex maps natural language to commands; HTTP is not listening proof. |
