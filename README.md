@@ -10,7 +10,7 @@ alignment, captions, reusable graphics/effects, reviewable edits and MP4 export.
 empty writable project folder open. Codex downloads the pinned preview and handles
 setup and guided onboarding. No manual ZIP download or folder organization.
 
-[Preview release](https://github.com/aiwithvanessa/ai-video-studio/releases/tag/v0.1.0-preview.2) · [Detailed workflow](START-HERE.md)
+[Preview release](https://github.com/aiwithvanessa/ai-video-studio/releases/tag/v0.1.0-preview.3) · [Detailed workflow](START-HERE.md)
 
 Windows x64, Node/npm and FFmpeg/ffprobe are required. Dependency, browser and
 optional speech-model downloads need internet and storage. Codex access may have
@@ -29,3 +29,4 @@ No private footage, brand approvals, outputs or local history are bundled.
 commercial finished videos are allowed. Resale and redistribution outside GitHub
 platform permissions require permission. GitHub viewing and in-service forking
 rights are preserved. Third-party terms remain separate. No legal review claimed.
+
